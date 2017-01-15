@@ -16,6 +16,10 @@ var ProductService = (function () {
         this.http = http;
         console.log('Product Service');
     }
+    ProductService.prototype.getProducts = function () {
+        return this.http.get('/api/products')
+            .map(function (res) { return res.json(); });
+    };
     ProductService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

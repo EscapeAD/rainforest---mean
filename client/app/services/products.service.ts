@@ -7,6 +7,10 @@ export class ProductService {
   constructor(private http: Http){
 
     console.log('Product Service');
-    
+
+  }
+  getProducts(){
+    return this.http.get('/api/products')
+                    .map(res => res.json())
   }
 }

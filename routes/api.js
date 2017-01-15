@@ -3,7 +3,7 @@ const express     = require('express'),
       Product     = require('../models/product'),
       router      = express.Router();
 
-mongoose.connect('mongodb://localhost/rainforest')
+mongoose.connect('mongodb://localhost:27017/rainforest')
 
 //ALL
 router.get('/products', (req, res)=>{
@@ -12,7 +12,7 @@ router.get('/products', (req, res)=>{
       console.log(err);
       res.send(err);
     } else {
-      render.json(products);
+      res.json(products);
     }
   })
 })
@@ -24,7 +24,7 @@ router.get('/products/:id', (req, res)=>{
       console.log(err);
       res.send(err);
     } else {
-      render.json(product);
+      res.json(product);
     }
   })
 })
@@ -37,7 +37,7 @@ router.post('/products', (req, res)=>{
       console.log(err);
       res.send(err);
     } else {
-      render.json(products);
+      res.json(products);
     }
   })
 })
@@ -50,7 +50,7 @@ router.put('/products/:id', (req, res)=>{
       console.log(err);
       res.send(err);
     } else {
-      render.json(product);
+      res.json(product);
     }
   })
 })
@@ -62,7 +62,7 @@ router.delete('/products/:id', (req, res)=>{
       console.log(err);
       res.send(err);
     } else {
-      render.json(product);
+      res.json(product);
     }
   })
 })
