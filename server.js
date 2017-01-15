@@ -16,6 +16,9 @@ app.engine('html', require('ejs').renderFile)
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+//public
+app.use(express.static(path.join(__dirname, 'client')))
+
 //routes
 app.use('/', index)
 app.use('/api', api)
@@ -26,4 +29,4 @@ app.listen(port, err =>{
     console.log(`Error enabling listen on port ${port}`)
   }
   console.log(`Server is now listening on port ${port}`)
-}
+})
