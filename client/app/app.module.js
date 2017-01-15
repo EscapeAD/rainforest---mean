@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var app_routing_module_1 = require('./app-routing.module');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var products_component_1 = require('./components/products/products.component');
 var product_component_1 = require('./components/product/product.component');
@@ -22,7 +23,7 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, router_1.RouterModule, app_routing_module_1.AppRoutingModule],
+            imports: [platform_browser_1.BrowserModule, router_1.RouterModule, app_routing_module_1.AppRoutingModule, http_1.HttpModule],
             declarations: [app_component_1.AppComponent, products_component_1.ProductsComponent, nav_component_1.NavComponent, product_component_1.ProductComponent, newproduct_component_1.NewProductComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 

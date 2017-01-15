@@ -9,22 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var products_service_1 = require('../../services/products.service');
-// import { Product } from '../../interface/product';
-var NewProductComponent = (function () {
-    function NewProductComponent(productService) {
-        this.productService = productService;
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+var ProductService = (function () {
+    function ProductService(http) {
+        this.http = http;
+        console.log('Product Service');
     }
-    NewProductComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'newproduct',
-            templateUrl: 'newproduct.component.html',
-            providers: [products_service_1.ProductService]
-        }), 
-        __metadata('design:paramtypes', [products_service_1.ProductService])
-    ], NewProductComponent);
-    return NewProductComponent;
+    ProductService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], ProductService);
+    return ProductService;
 }());
-exports.NewProductComponent = NewProductComponent;
-//# sourceMappingURL=newproduct.component.js.map
+exports.ProductService = ProductService;
+//# sourceMappingURL=products.service.js.map
