@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var NavComponent = (function () {
-    function NavComponent() {
+var ProductComponent = (function () {
+    function ProductComponent() {
     }
-    NavComponent = __decorate([
+    ProductComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'navmenu',
-            templateUrl: 'nav.component.html'
+            selector: 'product',
+            templateUrl: 'product.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], NavComponent);
-    return NavComponent;
+    ], ProductComponent);
+    return ProductComponent;
 }());
-exports.NavComponent = NavComponent;
-//# sourceMappingURL=nav.component.js.map
+exports.ProductComponent = ProductComponent;
+//# sourceMappingURL=product.component.js.map
