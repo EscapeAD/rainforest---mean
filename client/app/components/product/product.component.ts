@@ -4,7 +4,7 @@ import 'rxjs/add/operator/switchMap';
 
 
 import { ProductService } from '../../services/products.service';
-import { Product } from '../../interface/product';
+import { Product } from '../../model/product';
 
 
 @Component({
@@ -32,7 +32,7 @@ product: Product
   goHome(){
     this.router.navigate(['/products']);
   }
-  goDelete(id){
+  goDelete(id:any){
     this.productService.goDelete(id)
                        .subscribe( data => {
                          this.router.navigate(['/products']);

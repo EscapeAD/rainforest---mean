@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Form }  from '@angular/forms';
 
 import { ProductService } from '../../services/products.service';
-import { Product } from '../../interface/product';
+import { Product } from '../../model/product';
 
 
 @Component({
