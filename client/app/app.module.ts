@@ -8,6 +8,7 @@ import { FormsModule }            from '@angular/forms';
 
 import { AppComponent }           from './app.component';
 import { ProductsComponent }      from './components/products/products.component';
+import { LoginComponent }         from './components/login/login.component';
 import { ProductComponent }       from './components/product/product.component';
 import { NewProductComponent }    from './components/newproduct/newproduct.component';
 import { NavComponent }           from './components/navbar/nav.component';
@@ -15,7 +16,7 @@ import { NavComponent }           from './components/navbar/nav.component';
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule, AppRoutingModule, HttpModule, FormsModule ],
-  declarations: [ AppComponent, ProductsComponent, NavComponent, ProductComponent, NewProductComponent ],
+  declarations: [ AppComponent, ProductsComponent, NavComponent, ProductComponent, NewProductComponent, LoginComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -16,6 +16,7 @@ var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var products_component_1 = require('./components/products/products.component');
+var login_component_1 = require('./components/login/login.component');
 var product_component_1 = require('./components/product/product.component');
 var newproduct_component_1 = require('./components/newproduct/newproduct.component');
 var nav_component_1 = require('./components/navbar/nav.component');
@@ -25,7 +26,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, router_1.RouterModule, app_routing_module_1.AppRoutingModule, http_1.HttpModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, products_component_1.ProductsComponent, nav_component_1.NavComponent, product_component_1.ProductComponent, newproduct_component_1.NewProductComponent],
+            declarations: [app_component_1.AppComponent, products_component_1.ProductsComponent, nav_component_1.NavComponent, product_component_1.ProductComponent, newproduct_component_1.NewProductComponent, login_component_1.LoginComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
