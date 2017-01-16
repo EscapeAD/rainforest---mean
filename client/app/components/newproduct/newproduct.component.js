@@ -8,22 +8,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var products_service_1 = require('../../services/products.service');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var products_service_1 = require("../../services/products.service");
 var NewProductComponent = (function () {
-    function NewProductComponent(productService) {
+    function NewProductComponent(productService, router) {
         this.productService = productService;
+        this.router = router;
     }
-    NewProductComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'newproduct',
-            templateUrl: 'newproduct.component.html',
-            providers: [products_service_1.ProductService]
-        }), 
-        __metadata('design:paramtypes', [products_service_1.ProductService])
-    ], NewProductComponent);
+    NewProductComponent.prototype.addProduct = function (event) {
+        event.preventDefault();
+        var newProduct = {
+            name: this.name,
+            description: this.description,
+            price: this.price
+        };
+        console.log(newProduct);
+        this.productService.addProduct(newProduct)
+            .subscribe(function (data) {
+        });
+    };
     return NewProductComponent;
 }());
+NewProductComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'newproduct',
+        templateUrl: 'newproduct.component.html',
+        providers: [products_service_1.ProductService]
+    }),
+    __metadata("design:paramtypes", [products_service_1.ProductService, router_1.Router])
+], NewProductComponent);
 exports.NewProductComponent = NewProductComponent;
 //# sourceMappingURL=newproduct.component.js.map

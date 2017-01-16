@@ -1,17 +1,18 @@
 <div class="container">
     <h1>Product Form</h1>
-    <form>
+    <form (ngSubmit)="addProduct($event)"
+          #f="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required>
+        <input type="text" class="form-control" [(ngModel)]='name' name='name' id="name" required>
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description">
+        <input type="text" class="form-control" [(ngModel)]='description' name="description" id="description">
       </div>
       <div class="form-group">
         <label for="price">price</label>
-        <input type="number" class="form-control" id="price">
+        <input type="number" class="form-control" [(ngModel)]='price' name='price' id="price">
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>

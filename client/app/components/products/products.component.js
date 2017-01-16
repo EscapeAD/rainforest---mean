@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var products_service_1 = require("../../services/products.service");
+var core_1 = require('@angular/core');
+var products_service_1 = require('../../services/products.service');
 var ProductsComponent = (function () {
     function ProductsComponent(productService) {
         this.productService = productService;
@@ -19,18 +19,19 @@ var ProductsComponent = (function () {
         this.productService.getProducts()
             .subscribe(function (products) {
             _this.products = products;
+            console.log(products);
         });
     };
+    ProductsComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'products',
+            templateUrl: 'products.component.html',
+            providers: [products_service_1.ProductService]
+        }), 
+        __metadata('design:paramtypes', [products_service_1.ProductService])
+    ], ProductsComponent);
     return ProductsComponent;
 }());
-ProductsComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'products',
-        templateUrl: 'products.component.html',
-        providers: [products_service_1.ProductService]
-    }),
-    __metadata("design:paramtypes", [products_service_1.ProductService])
-], ProductsComponent);
 exports.ProductsComponent = ProductsComponent;
 //# sourceMappingURL=products.component.js.map
