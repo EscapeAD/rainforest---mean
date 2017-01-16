@@ -30,10 +30,9 @@ price: number
       description: this.description,
       price: this.price
     }
-    console.log(newProduct)
     this.productService.addProduct(newProduct)
                        .subscribe( data =>{
-                        //  this.router.navigate(['/products']);
+                         this.router.navigate(['/products']);
                        })
   }
 }

@@ -1,0 +1,12 @@
+<h2>Product</h2>
+<div *ngIf="product">
+  <h3>"{{ product.name }}"</h3>
+  <div>
+    <label>Price: </label>{{ product.price }}</div>
+  <div>
+    <label>Name: {{ product.description }}</label>
+  </div>
+  <p>
+    <button (click)="goHome()">Back</button>
+  </p>
+</div>
