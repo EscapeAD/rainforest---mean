@@ -20,6 +20,10 @@ var ProductService = (function () {
         return this.http.get('/api/products')
             .map(function (res) { return res.json(); });
     };
+    ProductService.prototype.getProduct = function (id) {
+        return this.http.get("/api/products/" + id)
+            .map(function (res) { return res.json(); });
+    };
     ProductService.prototype.addProduct = function (product) {
         var header = new http_1.Headers();
         header.append('Content-Type', 'application/json');

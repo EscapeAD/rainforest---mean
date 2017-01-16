@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var products_service_1 = require('../../services/products.service');
 var ProductsComponent = (function () {
-    function ProductsComponent(productService) {
+    function ProductsComponent(productService, router) {
         this.productService = productService;
+        this.router = router;
     }
     ProductsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -22,6 +24,9 @@ var ProductsComponent = (function () {
             console.log(products);
         });
     };
+    ProductsComponent.prototype.goProduct = function (id) {
+        this.router.navigate(['/products', id]);
+    };
     ProductsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -29,7 +34,7 @@ var ProductsComponent = (function () {
             templateUrl: 'products.component.html',
             providers: [products_service_1.ProductService]
         }), 
-        __metadata('design:paramtypes', [products_service_1.ProductService])
+        __metadata('design:paramtypes', [products_service_1.ProductService, router_1.Router])
     ], ProductsComponent);
     return ProductsComponent;
 }());

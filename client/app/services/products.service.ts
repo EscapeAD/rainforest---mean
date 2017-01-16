@@ -13,6 +13,10 @@ export class ProductService {
     return this.http.get('/api/products')
                     .map(res => res.json())
   }
+  getProduct(id:number){
+    return this.http.get(`/api/products/${id}`)
+                    .map(res => res.json())
+  }
   addProduct(product: any){
     let header = new Headers()
     header.append('Content-Type', 'application/json');
