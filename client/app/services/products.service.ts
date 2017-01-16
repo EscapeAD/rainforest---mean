@@ -23,4 +23,8 @@ export class ProductService {
     return this.http.post('/api/products', JSON.stringify(product), {headers: header})
                     .map(res => res.json())
   }
+  goDelete(id){
+    return this.http.delete(`/api/products/${id}`)
+                    .map(res => res.json())
+  }
 }

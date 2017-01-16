@@ -30,6 +30,13 @@ var ProductComponent = (function () {
     ProductComponent.prototype.goHome = function () {
         this.router.navigate(['/products']);
     };
+    ProductComponent.prototype.goDelete = function (id) {
+        var _this = this;
+        this.productService.goDelete(id)
+            .subscribe(function (data) {
+            _this.router.navigate(['/products']);
+        });
+    };
     ProductComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

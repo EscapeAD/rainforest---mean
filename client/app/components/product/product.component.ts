@@ -32,4 +32,10 @@ product: Product
   goHome(){
     this.router.navigate(['/products']);
   }
+  goDelete(id){
+    this.productService.goDelete(id)
+                       .subscribe( data => {
+                         this.router.navigate(['/products']);
+                       })
+  }
 }
