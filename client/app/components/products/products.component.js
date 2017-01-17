@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var products_service_1 = require('../../services/products.service');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var products_service_1 = require("../../services/products.service");
 var ProductsComponent = (function () {
     function ProductsComponent(productService, router) {
         this.productService = productService;
@@ -21,22 +21,38 @@ var ProductsComponent = (function () {
         this.productService.getProducts()
             .subscribe(function (products) {
             _this.products = products;
+            _this.resets = products;
             console.log(products);
         });
     };
     ProductsComponent.prototype.goProduct = function (id) {
         this.router.navigate(['/products', id]);
     };
-    ProductsComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'products',
-            templateUrl: 'products.component.html',
-            providers: [products_service_1.ProductService]
-        }), 
-        __metadata('design:paramtypes', [products_service_1.ProductService, router_1.Router])
-    ], ProductsComponent);
+    ProductsComponent.prototype.filterSearch = function (searchQ) {
+        var search = this.search;
+        if (search.trim() != '' && search) {
+            this.products = this.products.filter(function (product) {
+                return (product['name'].toLowerCase().indexOf(search.toLowerCase()) > -1);
+            });
+        }
+        else {
+            this.products = this.resets;
+        }
+    };
+    ProductsComponent.prototype.resetSearch = function () {
+        this.products = this.resets;
+    };
     return ProductsComponent;
 }());
+ProductsComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'products',
+        templateUrl: 'products.component.html',
+        providers: [products_service_1.ProductService],
+        stylesUrl: []
+    }),
+    __metadata("design:paramtypes", [products_service_1.ProductService, router_1.Router])
+], ProductsComponent);
 exports.ProductsComponent = ProductsComponent;
 //# sourceMappingURL=products.component.js.map

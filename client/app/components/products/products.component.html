@@ -3,7 +3,15 @@
     <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
     <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
   </div>
+<div class='pull-right'>
+  <form id='inline' (ngSubmit)="filterSearch($event)"  #f="ngForm">
+  Search:
+  <input type='text' [(ngModel)]='search' name='search'>
+</form>
+<button (click)="resetSearch()">Reset</button>
+<br><br>
 
+</div>
 <div class="row">
       <div *ngFor="let product of products">
         <div class='col'>
