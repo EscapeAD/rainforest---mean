@@ -9,10 +9,11 @@ isLoggedIn: boolean
 
   }
   authenticateUser(cred: any){
+    this.isLoggedIn = false;
     let header = new Headers();
-    let creds  = 'username';
-    header.append('Content-Type', 'application/json')
-    return this.http.post('/api/auth', JSON.stringify(creds), {headers: header})
+    let loginInfo  = `username=${cred.username}&password=${cred.password}`;
+    header.append('Content-Type', 'application/X-www-form-urlencoded');
+    return this.http.post('/api/auth', JSON.stringify(loginInfo), {headers: header})
                     .map((res)=>{
                       res.json();
                     })

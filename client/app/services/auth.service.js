@@ -8,26 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
     }
     AuthService.prototype.authenticateUser = function (cred) {
+        this.isLoggedIn = false;
         var header = new http_1.Headers();
-        var creds = 'username';
-        header.append('Content-Type', 'application/json');
-        return this.http.post('/api/auth', JSON.stringify(creds), { headers: header })
+        var loginInfo = "username=" + cred.username + "&password=" + cred.password;
+        header.append('Content-Type', 'application/X-www-form-urlencoded');
+        return this.http.post('/api/auth', JSON.stringify(loginInfo), { headers: header })
             .map(function (res) {
             res.json();
         });
     };
-    AuthService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], AuthService);
     return AuthService;
 }());
+AuthService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], AuthService);
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map
