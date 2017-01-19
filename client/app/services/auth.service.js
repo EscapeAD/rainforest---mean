@@ -8,27 +8,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-var AuthService = (function () {
-    function AuthService(http) {
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+var AuthenticationService = (function () {
+    function AuthenticationService(http) {
         this.http = http;
     }
-    AuthService.prototype.authenticateUser = function (cred) {
-        this.isLoggedIn = false;
-        var header = new http_1.Headers();
-        var loginInfo = "username=" + cred.username + "&password=" + cred.password;
-        header.append('Content-Type', 'application/X-www-form-urlencoded');
-        return this.http.post('/api/auth', JSON.stringify(loginInfo), { headers: header })
-            .map(function (res) {
-            res.json();
+    AuthenticationService.prototype.login = function (username, password) {
+        return this.http.post('/api/auth', JSON.stringify({ username: username, password: password }))
+            .map(function (response) {
+            // login successful if there's a jwt token in the response
+            var user = response.json();
+            if (user && user.token) {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(user));
+            }
         });
     };
-    return AuthService;
+    AuthenticationService.prototype.logout = function () {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+    };
+    AuthenticationService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], AuthenticationService);
+    return AuthenticationService;
 }());
-AuthService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], AuthService);
-exports.AuthService = AuthService;
+exports.AuthenticationService = AuthenticationService;
 //# sourceMappingURL=auth.service.js.map

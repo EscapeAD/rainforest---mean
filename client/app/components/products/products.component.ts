@@ -8,8 +8,7 @@ import { Product } from '../../model/product';
   moduleId: module.id,
   selector: 'products',
   templateUrl: 'products.component.html',
-  providers: [ProductService],
-  stylesUrl: []
+  providers: [ProductService]
 })
 export class ProductsComponent implements OnInit {
   products: Product[]

@@ -10,42 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var auth_service_1 = require('../../services/auth.service');
 var alert_service_1 = require('../../services/alert.service');
-var LoginComponent = (function () {
-    function LoginComponent(route, router, authenticationService, alertService) {
-        this.route = route;
+var user_service_1 = require('../../services/user.service');
+var RegisterComponent = (function () {
+    function RegisterComponent(router, userService, alertService) {
         this.router = router;
-        this.authenticationService = authenticationService;
+        this.userService = userService;
         this.alertService = alertService;
         this.model = {};
         this.loading = false;
     }
-    LoginComponent.prototype.ngOnInit = function () {
-        // reset login status
-        this.authenticationService.logout();
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    };
-    LoginComponent.prototype.login = function () {
+    RegisterComponent.prototype.register = function () {
         var _this = this;
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.userService.create(this.model)
             .subscribe(function (data) {
-            _this.router.navigate([_this.returnUrl]);
+            // set success message and pass true paramater to persist the message after redirecting to the login page
+            _this.alertService.success('Registration successful', true);
+            _this.router.navigate(['/login']);
         }, function (error) {
             _this.alertService.error(error);
             _this.loading = false;
         });
     };
-    LoginComponent = __decorate([
+    RegisterComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'login.component.html'
+            templateUrl: 'register.component.html'
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, auth_service_1.AuthenticationService, alert_service_1.AlertService])
-    ], LoginComponent);
-    return LoginComponent;
+        __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService, alert_service_1.AlertService])
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
-exports.LoginComponent = LoginComponent;
-//# sourceMappingURL=login.component.js.map
+exports.RegisterComponent = RegisterComponent;
+//# sourceMappingURL=register.component.js.map

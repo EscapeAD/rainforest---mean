@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var products_service_1 = require("../../services/products.service");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var products_service_1 = require('../../services/products.service');
 var ProductsComponent = (function () {
     function ProductsComponent(productService, router) {
         this.productService = productService;
@@ -42,17 +42,16 @@ var ProductsComponent = (function () {
     ProductsComponent.prototype.resetSearch = function () {
         this.products = this.resets;
     };
+    ProductsComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'products',
+            templateUrl: 'products.component.html',
+            providers: [products_service_1.ProductService]
+        }), 
+        __metadata('design:paramtypes', [products_service_1.ProductService, router_1.Router])
+    ], ProductsComponent);
     return ProductsComponent;
 }());
-ProductsComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'products',
-        templateUrl: 'products.component.html',
-        providers: [products_service_1.ProductService],
-        stylesUrl: []
-    }),
-    __metadata("design:paramtypes", [products_service_1.ProductService, router_1.Router])
-], ProductsComponent);
 exports.ProductsComponent = ProductsComponent;
 //# sourceMappingURL=products.component.js.map

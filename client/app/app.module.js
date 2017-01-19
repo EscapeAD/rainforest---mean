@@ -20,14 +20,21 @@ var login_component_1 = require('./components/login/login.component');
 var product_component_1 = require('./components/product/product.component');
 var newproduct_component_1 = require('./components/newproduct/newproduct.component');
 var nav_component_1 = require('./components/navbar/nav.component');
+var alert_component_1 = require('./components/alert/alert.component');
+var register_component_1 = require('./components/register/register.component');
+var auth_service_1 = require('./services/auth.service');
+var alert_service_1 = require('./services/alert.service');
+var user_service_1 = require('./services/user.service');
+var products_service_1 = require('./services/products.service');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, router_1.RouterModule, app_routing_module_1.AppRoutingModule, http_1.HttpModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, products_component_1.ProductsComponent, nav_component_1.NavComponent, product_component_1.ProductComponent, newproduct_component_1.NewProductComponent, login_component_1.LoginComponent],
-            bootstrap: [app_component_1.AppComponent]
+            declarations: [app_component_1.AppComponent, products_component_1.ProductsComponent, nav_component_1.NavComponent, product_component_1.ProductComponent, newproduct_component_1.NewProductComponent, login_component_1.LoginComponent, alert_component_1.AlertComponent, register_component_1.RegisterComponent],
+            bootstrap: [app_component_1.AppComponent],
+            providers: [auth_service_1.AuthenticationService, alert_service_1.AlertService, user_service_1.UserService, products_service_1.ProductService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
